@@ -4,7 +4,24 @@ body {
 }
 
 header {
-  height: 20vmin;
+  height: 7rem;
   background: blue;
+}
+
+.video-wrapper {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 11rem;
+  margin-top: 5rem;
+}
+
+.display {
+  height: 15rem;
+  width: 25rem;
+  background: white;
 }
 /*# sourceMappingURL=style.css.map */

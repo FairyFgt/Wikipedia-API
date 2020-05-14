@@ -4,6 +4,19 @@ body {
 }
 
 header {
-    height: 20vmin;
+    height: 7rem;
     background: blue;
+}
+
+.video-wrapper {
+    justify-content: center;
+    align-items: center;
+    margin-left: 11rem;
+    margin-top: 5rem;
+}
+
+.display {
+    height: 15rem;
+    width: 25rem;
+    background: white;
 }
