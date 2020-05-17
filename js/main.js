@@ -53,13 +53,11 @@ textInput.addEventListener('keypress', function(e) {
 	}
 });
 
-//format search string
 function formatSearch(str) {
 	var str1 = str.replace(/\s/gi, '+');
 	return str1;
 }
 
-//reset search input to empty
 btnReset.addEventListener('click', function() {
 	if (textInput.value == '') {
 		errorMessage.textContent = 'Enter topic in the form!';
@@ -73,7 +71,6 @@ btnReset.addEventListener('click', function() {
 	}
 });
 
-//check for check Empty Search
 function checkEmptySearch(e, textInput) {
 	if (e.keyCode === 13 && textInput.value == '') {
 		errorMessage.textContent = 'Enter topic in the form!';
