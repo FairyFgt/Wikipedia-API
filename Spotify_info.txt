@@ -1,0 +1,12 @@
+Client ID 0cddc297ec424b14943a2e885e785ae9
+Client Secret 78522a1b3e414a62bac0e5af146a2362 
+https://accounts.spotify.com/authorize?client_id=0cddc297ec424b14943a2e885e785ae9&scopes=playlist-read-private&response_type=code&redirect_uri=https%3A%2F%2Ffriskdesign.se%2F
+
+0cddc297ec424b14943a2e885e785ae9:78522a1b3e414a62bac0e5af146a2362 
+64: MGNkZGMyOTdlYzQyNGIxNDk0M2EyZTg4NWU3ODVhZTk6Nzg1MjJhMWIzZTQxNGE2MmJhYzBlNWFmMTQ2YTIzNjI=
+
+curl -H "Authorization: Basic MGNkZGMyOTdlYzQyNGIxNDk0M2EyZTg4NWU3ODVhZTk6Nzg1MjJhMWIzZTQxNGE2MmJhYzBlNWFmMTQ2YTIzNjI=" -d grant_type=authorization_code -d code=AQBgQU1kGMMgYC1XBAmj7QhKV8aCm6kmbxdIvjghyi2W4GVLmrFnB8tLZkk2QSSkk1Y5Rz_M8wlf9ds3bv3HJHuezhlWKc3m1awrRg8mixs84PFGW05pj4raByTSJROJoxaBjT3yYfOQRQ54JhcNNTDa0Tk-_fzRY5S15zBeDMRuAHB0TMALwmeySIHf -d redirect_uri=https%3A%2F%2Ffriskdesign.se%2F https://accounts.spotify.com/api/token
+
+Redirect URIs
+https://friskdesign.se/
+https%3A%2F%2Ffriskdesign.se%2F

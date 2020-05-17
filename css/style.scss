@@ -1,22 +1,109 @@
-body {
-    margin: 0;
-    background: purple;
+body{
+    background: #0b326dee !important;
 }
 
-header {
-    height: 7rem;
-    background: blue;
-}
-
-.video-wrapper {
-    justify-content: center;
-    align-items: center;
-    margin-left: 11rem;
-    margin-top: 5rem;
-}
-
-.display {
+.wikiHead {
     height: 15rem;
-    width: 25rem;
-    background: white;
+    background: gray;
 }
+
+img {
+    width: 10rem;
+    height: 10rem;
+
+}
+
+.search-container{
+    text-align: center;
+    color:  #fff;
+    padding-top: 20%;
+    margin: 0 auto;
+}
+
+.search-container-presskey{
+    padding-top: 10px;
+    transition: all 0.5s;
+}
+
+.reset{
+    padding-top: 20%;
+}
+
+input{
+    width: 200px;
+    font-weight: normal;
+    background: #0b326dee !important;
+    border: 3px solid #9de63fee !important;
+    border-radius: 25px;
+    outline: none;
+    padding: 5px 12px;
+    margin-right: 20px !important;
+
+    -webkit-transition: all .5s linear;
+   -moz-transition: all .5s linear;
+   -o-transition: all .5s linear;
+   -ms-transition: all .5s linear;
+   transition: all .5s linear;
+}
+
+input:focus{
+    width: 40%;  
+}
+
+img{
+    margin: 0 auto;
+    max-width: 150px !important;
+}
+
+.img-hide{
+    display: none !important;
+}
+
+#wikiImg{
+margin-bottom: 20px;
+}
+
+.well{
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#fetchedResult{
+    color: #666;
+    padding-top: 20px;
+}
+
+a:hover {
+    color:   purple !important;
+}
+
+a:visited {
+    color: red;
+}
+
+a:active {
+    color: blue;
+}
+
+a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none !important;
+}
+
+#btnReset{
+    display: none;
+    background-color: white !important;
+    color: #000 !important;
+
+      -webkit-transition: all .5s linear;
+      -moz-transition: all .5s linear;
+      -o-transition: all .5s linear;
+      -ms-transition: all .5s linear;
+      transition: all .5s linear;
+}
+
+#errorMessage{
+padding-top: 20px;
+}
+

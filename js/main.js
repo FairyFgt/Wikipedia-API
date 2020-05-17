@@ -1,19 +1,83 @@
-var request = require('request');
-var token = "Bearer BQCKPZ-Sb7J6Z3rIccR5uBGK1KCDzkRz4ZanyS09SdYDMGkUOK8iNbJNkIi_4gZdG6ZDoA9h50G-eTGmC0dZov2BZeuOfIWF4me_QwesfHQTbAGclJaN8RBgNHqARfTXOJghIKYkFQJA2Q";
-var playlist_url = "https://api.spotify.com/v1/users/"+user_id+"/playlists";
+var textInput = document.getElementById('searchText');
+var result = document.getElementById('fetchedResult');
+var searchContainer = document.getElementById('searchContainerPresskey');
+var wikiImgSpan = document.getElementById('wikiImg');
+var btnReset = document.getElementById('btnReset');
+var errorMessage = document.getElementById('errorMessage');
 
-request({url:playlist_url, headers:{"Authorization":token}}, function(err, res  ){
-    if(res){
-        var playlists =JSON.parse(res.body);
-        var playlist_url = playlists.items[0].href;
-        request({url:playlist_url, headers:{"Authorization":token}}, function(err, res){
-            if(res){
-                var playlists =JSON.parse(res.body);
-                console.log('playlist: ' + playlist.name)
-                playlists.tracks.forEach(function(track){
-                    console.log(track.track.name);
-                });
-            }
-        }
-    }
-})
+textInput.addEventListener('keypress', function(e) {
+	checkEmptySearch(e, textInput);
+	if (e.keyCode === 13) {
+		var xhr = new XMLHttpRequest();
+		var ip =
+			'https://en.wikipedia.org//w/api.php?action=opensearch&format=json&origin=*&search=stack&limit=10';
+
+		var uri =
+			'https://en.wikipedia.org//w/api.php?action=opensearch&format=json&origin=*&search=';
+		var searchTerm = formatSearch(textInput.value);
+		var searchLimit = '&limit=10';
+		var url = uri + searchTerm + searchLimit;
+
+		xhr.open('GET', url, true);
+		xhr.onload = function() {
+			if (this.status == 200) {
+				var dataAPi = JSON.parse(this.responseText);
+				var output = '';
+				for (var i = 0; i < dataAPi[1].length; i++) {
+					output +=
+						'<div class="well" id="wellContainer">' +
+						'<h2>' +
+						'<a href="' +
+						dataAPi[3][i] +
+						'"' +
+						'target="_blank">' +
+						dataAPi[1][i] +
+						'</a>' +
+						'</h2>' +
+						'<p>' +
+						dataAPi[2][i] +
+						'</p>' +
+						'</div>';
+				}
+			}
+			result.innerHTML = output;
+			searchContainer.classList.add('search-container-presskey');
+			wikiImgSpan.classList.add('img-hide');
+			errorMessage.textContent = '';
+			btnReset.style.display = 'inline';
+		};
+		xhr.onerror = function(e) {
+			alert(e.message + ' ' + e.error);
+		};
+		xhr.send();
+	}
+});
+
+//format search string
+function formatSearch(str) {
+	var str1 = str.replace(/\s/gi, '+');
+	return str1;
+}
+
+//reset search input to empty
+btnReset.addEventListener('click', function() {
+	if (textInput.value == '') {
+		errorMessage.textContent = 'Enter topic in the form!';
+		result.innerHTML = '';
+	} else {
+		textInput.value = '';
+		result.innerHTML = '';
+		searchContainerPresskey.classList.add('reset');
+		wikiImgSpan.classList.remove('img-hide');
+		btnReset.style.display = 'none';
+	}
+});
+
+//check for check Empty Search
+function checkEmptySearch(e, textInput) {
+	if (e.keyCode === 13 && textInput.value == '') {
+		errorMessage.textContent = 'Enter topic in the form!';
+		result.innerHTML = '';
+		btnReset.style.display = 'none';
+	}
+}
